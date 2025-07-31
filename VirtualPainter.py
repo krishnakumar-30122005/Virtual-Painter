@@ -240,6 +240,21 @@ def virtual_Painter():
         # cv2.imshow("Inv", imgInv)
         cv2.waitKey(1)
 
+        imgGray = cv2.cvtColor(imgCanvas, cv2.COLOR_BGR2GRAY)
+        _, imgInv = cv2.threshold(imgGray, 50, 255, cv2.THRESH_BINARY_INV)
+        imgInv = cv2.cvtColor(imgInv, cv2.COLOR_GRAY2BGR)
+        img = cv2.bitwise_and(img, imgInv)
+        img = cv2.bitwise_or(img, imgCanvas)
+
+        # Setting the header image
+        img[0:210, 0:1280] = header
+        # img = cv2.addWeighted(img,0.5,imgCanvas,0.5,0)
+
+        cv2.imshow("Image", img)
+        # cv2.imshow("Canvas", imgCanvas)
+        # cv2.imshow("Inv", imgInv)
+        cv2.waitKey(1)
+
 
 
 
