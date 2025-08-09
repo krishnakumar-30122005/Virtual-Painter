@@ -1,8 +1,4 @@
-import cv2
-import numpy as np
-import time
-import os
-import HandTrackingModule as htm
+
 def virtual_Painter():
     # print("started")
     brushThickness = 5
